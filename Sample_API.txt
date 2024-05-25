@@ -1,0 +1,94 @@
+# Sample APIs
+
+## Account APIs
+
+### Create Account
+**Endpoint**: `/accounts/`  
+**Method**: `POST`  
+**Request Body**:
+{
+    "email": "example@example.com",
+    "account_id": "unique_account_id",
+    "account_name": "Example Account",
+    "website": "http://example.com"
+}
+
+### Retrieve Account
+**Endpoint**: `/accounts/<int:pk>/`  
+**Method**: `GET`  
+
+### Update Account
+**Endpoint**: `/accounts/<int:pk>/`  
+**Method**: `PUT`  
+**Request Body**:
+{
+    "email": "example@example.com",
+    "account_id": "updated_account_id",
+    "account_name": "Updated Account Name",
+    "website": "http://example.com"
+}
+
+### Delete Account
+**Endpoint**: `/accounts/<int:pk>/`  
+**Method**: `DELETE`  
+
+## Destination APIs
+
+### Create Destination
+**Endpoint**: `/destinations/`  
+**Method**: `POST`  
+**Request Body**:
+{
+    "account": 1,
+    "url": "http://destination.url",
+    "http_method": "POST",
+    "headers": {
+        "APP_ID": "1234APPID1234",
+        "APP_SECRET": "enwdj3bshwer43bjhjs9ereuinkjcnsiurew8s",
+        "ACTION": "user.update",
+        "Content-Type": "application/json",
+        "Accept": "*"
+    }
+}
+
+### Retrieve Destination
+**Endpoint**: `/destinations/<int:pk>/`  
+**Method**: `GET`  
+
+### Update Destination
+**Endpoint**: `/destinations/<int:pk>/`  
+**Method**: `PUT`  
+**Request Body**:
+{
+    "account": 1,
+    "url": "http://updated.destination.url",
+    "http_method": "PUT",
+    "headers": {
+        "APP_ID": "1234UPDATEDAPPID1234",
+        "APP_SECRET": "updatedenwdj3bshwer43bjhjs9ereuinkjcnsiurew8s",
+        "ACTION": "user.update",
+        "Content-Type": "application/json",
+        "Accept": "*"
+    }
+}
+
+### Delete Destination
+**Endpoint**: `/destinations/<int:pk>/`  
+**Method**: `DELETE`  
+
+## Incoming Data API
+
+### Send Incoming Data
+**Endpoint**: `/server/incoming_data/`  
+**Method**: `POST`  
+**Headers**:
+{
+    "CL-XTOKEN": "app_secret_token"
+}
+**Request Body**:
+{
+    "http_method": "POST",
+    "data": {
+        "key": "value"
+    }
+}
